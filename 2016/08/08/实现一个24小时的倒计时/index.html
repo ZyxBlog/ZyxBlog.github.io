@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nodejs," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="nodejs安装本文采用nvm安装node参考-nvm-的-README-，执行下面的命令，我用的是-ubuntu-系统应该这样的操作：1curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash 这样 nvm 就安装好了，可能要重启一下 shell 才有 nvm 这个命令。 查看版本：1n">
-<meta name="keywords" content="nodejs">
+<meta name="description" content="要实现倒计时,需要以下知识点,定时器setInterval(),将时间换算成时分秒,考察的是对数字的操作。 html部分1&amp;lt;div id=&quot;show&quot;&amp;gt;&amp;lt;/div&amp;gt; js部分12345678910111213141516171819202122232425&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    window.onload = fun">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node的安装">
-<meta property="og:url" content="https://zyxblog.github.io/2016/07/16/node的安装/index.html">
+<meta property="og:title" content="实现一个24小时的倒计时">
+<meta property="og:url" content="https://zyxblog.github.io/2016/08/08/实现一个24小时的倒计时/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="nodejs安装本文采用nvm安装node参考-nvm-的-README-，执行下面的命令，我用的是-ubuntu-系统应该这样的操作：1curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash 这样 nvm 就安装好了，可能要重启一下 shell 才有 nvm 这个命令。 查看版本：1n">
+<meta property="og:description" content="要实现倒计时,需要以下知识点,定时器setInterval(),将时间换算成时分秒,考察的是对数字的操作。 html部分1&amp;lt;div id=&quot;show&quot;&amp;gt;&amp;lt;/div&amp;gt; js部分12345678910111213141516171819202122232425&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    window.onload = fun">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T13:35:00.368Z">
+<meta property="og:updated_time" content="2018-04-23T14:35:48.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node的安装">
-<meta name="twitter:description" content="nodejs安装本文采用nvm安装node参考-nvm-的-README-，执行下面的命令，我用的是-ubuntu-系统应该这样的操作：1curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash 这样 nvm 就安装好了，可能要重启一下 shell 才有 nvm 这个命令。 查看版本：1n">
+<meta name="twitter:title" content="实现一个24小时的倒计时">
+<meta name="twitter:description" content="要实现倒计时,需要以下知识点,定时器setInterval(),将时间换算成时分秒,考察的是对数字的操作。 html部分1&amp;lt;div id=&quot;show&quot;&amp;gt;&amp;lt;/div&amp;gt; js部分12345678910111213141516171819202122232425&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    window.onload = fun">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zyxblog.github.io/2016/07/16/node的安装/"/>
+  <link rel="canonical" href="https://zyxblog.github.io/2016/08/08/实现一个24小时的倒计时/"/>
 
 
 
 
 
-  <title>node的安装 | 白驹过隙，忽然而已</title>
+  <title>实现一个24小时的倒计时 | 白驹过隙，忽然而已</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zyxblog.github.io/2016/07/16/node的安装/">
+    <link itemprop="mainEntityOfPage" href="https://zyxblog.github.io/2016/08/08/实现一个24小时的倒计时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="周轶轩">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node的安装</h1>
+          <h1 class="post-title" itemprop="name headline">实现一个24小时的倒计时</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-16T11:19:22+08:00">
-                2016-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-08T08:12:12+08:00">
+                2016-08-08
               </time>
             
 
@@ -342,19 +342,10 @@
       
 
       
-        <h2 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h2><h3 id="本文采用nvm安装node"><a href="#本文采用nvm安装node" class="headerlink" title="本文采用nvm安装node"></a>本文采用nvm安装node</h3><p>参考-nvm-的-README-，执行下面的命令，我用的是-ubuntu-系统应该这样的操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</span><br></pre></td></tr></table></figure></p>
-<p>这样 nvm 就安装好了，可能要重启一下 shell 才有 nvm 这个命令。</p>
-<p>查看版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure></p>
-<p>可以看到当前最新版本是-v6-2-0-，运行下面的命令来安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install v6.2.0</span><br></pre></td></tr></table></figure></p>
-<p>现在再来安装一个包，看看会被安装到什么位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g gulp</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/zyx/.nvm/versions/node/v6.2.0/bin/gulp</span><br></pre></td></tr></table></figure>
-<p>可以看到-gulp-这个包安装到了-Users-zyx-之下。并且可执行文件也自动导出为系统命令了，可以通过运行下面的命令来确认：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> gulp</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/zyx/.nvm/versions/node/v6.2.0/bin/gulp</span><br></pre></td></tr></table></figure>
-<p>设置默认版本</p>
-<p>每次启动新 shell ，Node 还是老版本。写成最新安装的 NVM 版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm <span class="built_in">alias</span> default 6.2.0</span><br></pre></td></tr></table></figure></p>
-<p>让npm使用淘宝镜像换源,到 taobao 相关页面，找到下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="built_in">alias</span> cnpm=<span class="string">"npm --registry=https://registry.npm.taobao.org \</span></span><br><span class="line"><span class="string">  --cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm \  </span></span><br><span class="line"><span class="string">  --disturl=https://npm.taobao.org/dist \</span></span><br><span class="line"><span class="string">  --userconfig=<span class="variable">$HOME</span>/.cnpmrc</span></span><br><span class="line"><span class="string">$ ~/.zshrc</span></span><br><span class="line"><span class="string">$ source ~/.zshrc</span></span><br></pre></td></tr></table></figure></p>
-<p>因为我是ubuntu系统请把上面的 .zshrc 替换为 .bashrc 。</p>
-<p>cnpm跟npm用起来没有任何区别，可以放心使用。但是由于是国内的源，在安装包的时候会下载的更快</p>
+        <p>要实现倒计时,需要以下知识点,定时器setInterval(),将时间换算成时分秒,考察的是对数字的操作。</p>
+<h3 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"show"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span>() &#123;  </span><br><span class="line">        var show = document.getElementById(<span class="string">"show"</span>);</span><br><span class="line">        var t = 24*60*60;</span><br><span class="line">        var timer = setInterval(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            h = parseInt(t / 3600);</span><br><span class="line">            m = parseInt((t - h * 3600) / 60);</span><br><span class="line">            s = (t - h * 3600) % 60;</span><br><span class="line">            <span class="keyword">if</span> (h &lt; 10) &#123;</span><br><span class="line">                h = <span class="string">"0"</span> + h;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (m &lt; 10) &#123;</span><br><span class="line">                m = <span class="string">"0"</span> + m;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s &lt; 10) &#123;</span><br><span class="line">                s = <span class="string">"0"</span> + s;</span><br><span class="line">            &#125;</span><br><span class="line">            show.innerHTML = h + <span class="string">"时"</span> + m + <span class="string">"分"</span> + s + <span class="string">"秒"</span>;</span><br><span class="line">            t = t - 1;</span><br><span class="line">            <span class="keyword">if</span> (t &lt;= 0) &#123;</span><br><span class="line">                clearInterval(timer);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; ,1000);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>当小于0时,自动补零;而parseInt的用法是用取整数部分弃小数部分;%为取余数.</p>
 
       
     </div>
@@ -401,7 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -414,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/08/03/js关于数字和字符串的互相转化/" rel="next" title="js关于数字和字符串的互相转化">
+                <i class="fa fa-chevron-left"></i> js关于数字和字符串的互相转化
               </a>
             
           </div>
@@ -424,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/22/清除浮动的方式/" rel="prev" title="清除浮动的方式">
-                清除浮动的方式 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/12/html的marquee标签/" rel="prev" title="html的marquee标签">
+                html的marquee标签 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -578,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs安装"><span class="nav-number">1.</span> <span class="nav-text">nodejs安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文采用nvm安装node"><span class="nav-number">1.1.</span> <span class="nav-text">本文采用nvm安装node</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#html部分"><span class="nav-number">1.</span> <span class="nav-text">html部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js部分"><span class="nav-number">2.</span> <span class="nav-text">js部分</span></a></li></ol></div>
             
 
           </div>

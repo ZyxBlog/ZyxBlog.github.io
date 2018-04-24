@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12345678910&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;g">
+<meta name="description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 首先我们需要">
 <meta name="keywords" content="vuejs,webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue和webpack项目中外引插件">
 <meta property="og:url" content="https://zyxblog.github.io/2016/10/20/vue和webpack项目中外引插件/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12345678910&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;g">
+<meta property="og:description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 首先我们需要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T03:52:17.624Z">
+<meta property="og:image" content="http://oj171eydn.bkt.clouddn.com/chengxutu3.jpg">
+<meta property="og:updated_time" content="2018-04-24T04:43:08.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue和webpack项目中外引插件">
-<meta name="twitter:description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12345678910&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;g">
+<meta name="twitter:description" content="解决外部文件的引入webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用12&amp;lt;link rel=&quot;stylesheet&quot; type =&quot;text/css&quot; href=&quot;a.css&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 首先我们需要">
+<meta name="twitter:image" content="http://oj171eydn.bkt.clouddn.com/chengxutu3.jpg">
 
 
 
@@ -342,7 +344,9 @@
       
 
       
-        <h3 id="解决外部文件的引入"><a href="#解决外部文件的引入" class="headerlink" title="解决外部文件的引入"></a>解决外部文件的引入</h3><p>webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span> =<span class="string">"text/css"</span> href=<span class="string">"a.css"</span> /&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"a.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">首先我们需要在webpack.config.js中loaders里面配置好css或者less.&lt;br&gt;接着我们可以在该.vue文件里面的style模块中用ES6的语法import直接引入该文件.</span><br><span class="line">对于初学者来说可能要配置和引入文件比较麻烦,那我们可以选一种更直接的方法,那就是在index.html中像普通css和js一样引入.</span><br><span class="line">![程序图](http://oj171eydn.bkt.clouddn.com/chengxutu3.jpg)</span><br><span class="line"></span><br><span class="line"><span class="comment">### scoped</span></span><br><span class="line">对于每个页面的style我们发现会出现样式干扰的情况,经查阅,我们可以发现</span><br><span class="line">```bash</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span> scoped&gt;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="解决外部文件的引入"><a href="#解决外部文件的引入" class="headerlink" title="解决外部文件的引入"></a>解决外部文件的引入</h3><p>webpack+vue这种框架与普通html文件写入是不同的，它的语法是建立在ES6之上的，因此我们不能像平时一样用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span> =<span class="string">"text/css"</span> href=<span class="string">"a.css"</span> /&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"a.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>首先我们需要在webpack.config.js中loaders里面配置好css或者less.<br>接着我们可以在该.vue文件里面的style模块中用ES6的语法import直接引入该文件.<br>对于初学者来说可能要配置和引入文件比较麻烦,那我们可以选一种更直接的方法,那就是在index.html中像普通css和js一样引入.<br><img src="http://oj171eydn.bkt.clouddn.com/chengxutu3.jpg" alt="程序图"></p>
+<h3 id="scoped"><a href="#scoped" class="headerlink" title="scoped"></a>scoped</h3><p>对于每个页面的style我们发现会出现样式干扰的情况,经查阅,我们可以发现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span> scoped&gt;</span><br></pre></td></tr></table></figure></p>
 <p>使用scoped就能避免这个问题了</p>
 
       
@@ -569,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决外部文件的引入"><span class="nav-number">1.</span> <span class="nav-text">解决外部文件的引入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决外部文件的引入"><span class="nav-number">1.</span> <span class="nav-text">解决外部文件的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scoped"><span class="nav-number">2.</span> <span class="nav-text">scoped</span></a></li></ol></div>
             
 
           </div>

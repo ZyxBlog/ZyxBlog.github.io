@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Life, Books, Code" />
+  <meta name="keywords" content="jquery,js," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="非淡泊无以明志，非宁静无以致远">
-<meta name="keywords" content="前端,IT,Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="白驹过隙，忽然而已">
-<meta property="og:url" content="https://zyxblog.github.io/tags/json/index.html">
+<meta name="description" content="在jquery中关于点击事件click,我们除了用$(‘select’).click(function(){}),还可以用.on()或者.bind()或者.delegate()或者.live()来实现功能. bindbind为绑定事件,但是对于尚未存在的DOM元素是无法绑定的,同时不适宜选择器匹配较多的元素. delegatedelegate为事件委托,后面传递的是三个参数,第一个是操作的元素,第">
+<meta name="keywords" content="jquery,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery中点击事件的区别">
+<meta property="og:url" content="https://zyxblog.github.io/2016/09/25/jquery中点击事件的区别/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="非淡泊无以明志，非宁静无以致远">
+<meta property="og:description" content="在jquery中关于点击事件click,我们除了用$(‘select’).click(function(){}),还可以用.on()或者.bind()或者.delegate()或者.live()来实现功能. bindbind为绑定事件,但是对于尚未存在的DOM元素是无法绑定的,同时不适宜选择器匹配较多的元素. delegatedelegate为事件委托,后面传递的是三个参数,第一个是操作的元素,第">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-24T02:19:11.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="白驹过隙，忽然而已">
-<meta name="twitter:description" content="非淡泊无以明志，非宁静无以致远">
+<meta name="twitter:title" content="jquery中点击事件的区别">
+<meta name="twitter:description" content="在jquery中关于点击事件click,我们除了用$(‘select’).click(function(){}),还可以用.on()或者.bind()或者.delegate()或者.live()来实现功能. bindbind为绑定事件,但是对于尚未存在的DOM元素是无法绑定的,同时不适宜选择器匹配较多的元素. delegatedelegate为事件委托,后面传递的是三个参数,第一个是操作的元素,第">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zyxblog.github.io/tags/json/"/>
+  <link rel="canonical" href="https://zyxblog.github.io/2016/09/25/jquery中点击事件的区别/"/>
 
 
 
 
 
-  <title>标签: json | 白驹过隙，忽然而已</title>
+  <title>jquery中点击事件的区别 | 白驹过隙，忽然而已</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,54 +239,208 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>json<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zyxblog.github.io/2016/09/25/jquery中点击事件的区别/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="周轶轩">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oj171eydn.bkt.clouddn.com/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白驹过隙，忽然而已">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/08/25/关于json的操作/" itemprop="url">
-              
-                <span itemprop="name">关于json的操作</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">jquery中点击事件的区别</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-25T22:03:45+08:00"
-              content="2016-08-25" >
-          08-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-25T08:44:50+08:00">
+                2016-09-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在jquery中关于点击事件click,我们除了用$(‘select’).click(function(){}),还可以用.on()或者.bind()或者.delegate()或者.live()来实现功能.</p>
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>bind为绑定事件,但是对于尚未存在的DOM元素是无法绑定的,同时不适宜选择器匹配较多的元素.</p>
+<h3 id="delegate"><a href="#delegate" class="headerlink" title="delegate"></a>delegate</h3><p>delegate为事件委托,后面传递的是三个参数,第一个是操作的元素,第二个的是触发click,第三个是执行的函数,同时它会向上冒泡,直到绑定的元素,不适宜dom树太深.</p>
+<h3 id="live"><a href="#live" class="headerlink" title="live"></a>live</h3><p>live也是通过绑定事件,但是能弥补bind的缺陷,对于尚未存在的元素是可以绑定的.</p>
+<h3 id="on"><a href="#on" class="headerlink" title="on"></a>on</h3><p>on是比较好的方法,相对来说功能比较全,如果用jquery的话,尽量推荐用on</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oj171eydn.bkt.clouddn.com/wx.jpg" alt="周轶轩 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oj171eydn.bkt.clouddn.com/zhifubao.jpg" alt="周轶轩 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/20/js制作tab标签/" rel="next" title="js制作tab标签">
+                <i class="fa fa-chevron-left"></i> js制作tab标签
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/29/js操作数组-栈和队列/" rel="prev" title="js操作数组-栈和队列">
+                js操作数组-栈和队列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -293,6 +448,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -313,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -394,6 +562,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number">1.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delegate"><span class="nav-number">2.</span> <span class="nav-text">delegate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#live"><span class="nav-number">3.</span> <span class="nav-text">live</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on"><span class="nav-number">4.</span> <span class="nav-text">on</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -534,6 +718,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

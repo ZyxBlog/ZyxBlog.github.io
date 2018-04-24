@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="css实现设置padding-margin为0, 然后设置body, html长宽为100%1234567body,html &amp;#123;      padding: 0;    margin: 0;    width: 100%;    height: 100%;    background-color: pink;&amp;#125; js实现当body里面有个div,在不操作body的情况下,设置d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T02:38:39.193Z">
+<meta property="og:updated_time" content="2018-04-24T02:42:12.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js铺满全屏">
 <meta name="twitter:description" content="css实现设置padding-margin为0, 然后设置body, html长宽为100%1234567body,html &amp;#123;      padding: 0;    margin: 0;    width: 100%;    height: 100%;    background-color: pink;&amp;#125; js实现当body里面有个div,在不操作body的情况下,设置d">
@@ -343,11 +343,7 @@
 
       
         <h3 id="css实现"><a href="#css实现" class="headerlink" title="css实现"></a>css实现</h3><p>设置padding-margin为0, 然后设置body, html长宽为100%<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body,html &#123;  </span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="js实现"><a href="#js实现" class="headerlink" title="js实现"></a>js实现</h3><p>当body里面有个div,在不操作body的情况下,设置div宽高,使它铺满屏幕,</p>
-<ul>
-<li>首先css<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body,html &#123;  </span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#whole &#123;</span></span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="js实现"><a href="#js实现" class="headerlink" title="js实现"></a>js实现</h3><p>当body里面有个div,在不操作body的情况下,设置div宽高,使它铺满屏幕,<br>首先css<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body,html &#123;  </span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#whole &#123;</span></span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>首先在这里设置div宽高百分百是没有用的,因为父元素body没有宽度,所以设置百分百最后是不能实现的.<br>我们可以这样用js实现:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    var whole = document.getElementById(<span class="string">'whole'</span>);</span><br><span class="line">    var h = document.documentElement.clientHeight;</span><br><span class="line">    var w = document.documentElement.clientWidth;</span><br><span class="line">    whole.style.height = h + <span class="string">'px'</span>;</span><br><span class="line">    whole.style.width = w + <span class="string">'px'</span>;</span><br><span class="line">    window.onresize = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        h = document.documentElement.clientHeight;    </span><br><span class="line">        w = document.documentElement.clientWidth;</span><br><span class="line">        whole.style.height = h + <span class="string">'px'</span>;</span><br><span class="line">        whole.style.width = w + <span class="string">'px'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>clientHeight和clientWidth是可视区的高和宽,但是如果屏幕缩放会出现留白或者滚动条,因此当window.onresize时触发事件,重新赋值铺满,这样就可以了</p>
 
@@ -411,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/06/四种对象表示法/" rel="next" title="四种对象表示法">
-                <i class="fa fa-chevron-left"></i> 四种对象表示法
+              <a href="/2016/09/11/关于函数/" rel="next" title="关于函数">
+                <i class="fa fa-chevron-left"></i> 关于函数
               </a>
             
           </div>
@@ -515,7 +511,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -526,7 +522,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

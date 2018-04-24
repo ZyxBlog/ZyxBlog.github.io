@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Life, Books, Code" />
+  <meta name="keywords" content="jquery,js," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="非淡泊无以明志，非宁静无以致远">
-<meta name="keywords" content="前端,IT,Python">
+<meta name="description" content="find和children关于$.find()和$.children()的区别，在遍历DOM节点时,我们经常需要寻找子节点,那在jquery中比较常用的两种遍历方法$.find()和$.children().通过children获取的是该元素的下级元素，而通过find获取的是该元素的下级所有元素.这时回到上面，我们可以得出，$(“#tb&amp;gt;tbody”).children() 获取的是两个tr">
+<meta name="keywords" content="jquery,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jquery中一些api的用法">
 <meta property="og:url" content="https://zyxblog.github.io/2018/04/24/jquery中一些api的用法/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="非淡泊无以明志，非宁静无以致远">
+<meta property="og:description" content="find和children关于$.find()和$.children()的区别，在遍历DOM节点时,我们经常需要寻找子节点,那在jquery中比较常用的两种遍历方法$.find()和$.children().通过children获取的是该元素的下级元素，而通过find获取的是该元素的下级所有元素.这时回到上面，我们可以得出，$(“#tb&amp;gt;tbody”).children() 获取的是两个tr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T02:32:26.175Z">
+<meta property="og:updated_time" content="2018-04-24T02:49:53.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jquery中一些api的用法">
-<meta name="twitter:description" content="非淡泊无以明志，非宁静无以致远">
+<meta name="twitter:description" content="find和children关于$.find()和$.children()的区别，在遍历DOM节点时,我们经常需要寻找子节点,那在jquery中比较常用的两种遍历方法$.find()和$.children().通过children获取的是该元素的下级元素，而通过find获取的是该元素的下级所有元素.这时回到上面，我们可以得出，$(“#tb&amp;gt;tbody”).children() 获取的是两个tr">
 
 
 
@@ -293,6 +293,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,7 +342,9 @@
       
 
       
-        
+        <h3 id="find和children"><a href="#find和children" class="headerlink" title="find和children"></a>find和children</h3><p>关于$.find()和$.children()的区别，在遍历DOM节点时,我们经常需要寻找子节点,那在jquery中比较常用的两种遍历方法$.find()和$.children().<br>通过children获取的是该元素的下级元素，而通过find获取的是该元素的下级所有元素.这时回到上面，我们可以得出，$(“#tb&gt;tbody”).children() 获取的是两个tr元素（不包括它们子元素td)<br>而children里面的选择器则是在获取的两个tr元素里再根据条件进行筛选，所以上面那种写法获取不到值。</p>
+<h3 id="index"><a href="#index" class="headerlink" title="index"></a>index</h3><p>关于查找索引值index的用法———$.index()<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li id=<span class="string">"num1"</span>&gt;num1&lt;/li&gt;</span><br><span class="line">    &lt;li id=<span class="string">"num2"</span>&gt;num2&lt;/li&gt;</span><br><span class="line">    &lt;li id=<span class="string">"num3"</span>&gt;num3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'li'</span>).index(document.getElementById(<span class="string">'num2'</span>)); // 传递一个DOM对象，返回这个对象在原先集合中的索引位置</span><br><span class="line">$(<span class="string">'li'</span>).index($(<span class="string">'#num2'</span>));   // 传递一个jQuery对象</span><br><span class="line">$(<span class="string">'li'</span>).index($(<span class="string">'li:gt(0)'</span>));  // 传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置</span><br><span class="line">$(<span class="string">'#num2'</span>).index(<span class="string">'li'</span>);  // 传递一个选择器，返回<span class="comment">#num2在所有li中的做引位置</span></span><br><span class="line">$(<span class="string">'#num2'</span>).index(); //不传递参数，返回这个元素在同辈中的索引位置。</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -364,6 +388,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
 
       
       
@@ -373,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/01/关于使用hexo和github搭建博客/" rel="next" title="关于使用hexo和github搭建博客">
-                <i class="fa fa-chevron-left"></i> 关于使用hexo和github搭建博客
+              <a href="/2016/10/12/atom的用法/" rel="next" title="atom的用法">
+                <i class="fa fa-chevron-left"></i> atom的用法
               </a>
             
           </div>
@@ -383,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/24/atom的用法/" rel="prev" title="atom的用法">
-                atom的用法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/24/webpack和vuejs搭建项目/" rel="prev" title="webpack和vuejs搭建项目">
+                webpack和vuejs搭建项目 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -437,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -468,7 +509,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -479,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -518,6 +559,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#find和children"><span class="nav-number">1.</span> <span class="nav-text">find和children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index"><span class="nav-number">2.</span> <span class="nav-text">index</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

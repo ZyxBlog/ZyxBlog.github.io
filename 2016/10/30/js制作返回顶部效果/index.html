@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="html首先返回顶部需要搭建好静态页面 css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #back&amp;#123;           wid">
+<meta name="description" content="html首先返回顶部需要搭建好静态页面.首先建立好整个功能的架构具体如下图所示：  css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #ba">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js制作返回顶部效果">
 <meta property="og:url" content="https://zyxblog.github.io/2016/10/30/js制作返回顶部效果/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="html首先返回顶部需要搭建好静态页面 css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #back&amp;#123;           wid">
+<meta property="og:description" content="html首先返回顶部需要搭建好静态页面.首先建立好整个功能的架构具体如下图所示：  css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #ba">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oj171eydn.bkt.clouddn.com/show2.png">
 <meta property="og:image" content="http://oj171eydn.bkt.clouddn.com/show3.png">
 <meta property="og:image" content="http://oj171eydn.bkt.clouddn.com/show4.png">
-<meta property="og:updated_time" content="2018-04-24T04:36:44.480Z">
+<meta property="og:updated_time" content="2018-04-24T04:40:22.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js制作返回顶部效果">
-<meta name="twitter:description" content="html首先返回顶部需要搭建好静态页面 css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #back&amp;#123;           wid">
+<meta name="twitter:description" content="html首先返回顶部需要搭建好静态页面.首先建立好整个功能的架构具体如下图所示：  css123456789101112131415161718192021222324252627282930&amp;lt;style type=&quot;text/css&quot;&amp;gt;      html,body &amp;#123;        padding:0;        margin: 0;    &amp;#125;    #ba">
 <meta name="twitter:image" content="http://oj171eydn.bkt.clouddn.com/show2.png">
 
 
@@ -346,7 +346,8 @@
       
 
       
-        <h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>首先返回顶部需要搭建好静态页面<br><img src="http://oj171eydn.bkt.clouddn.com/show2.png" alt="静态html"></p>
+        <h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>首先返回顶部需要搭建好静态页面.<br>首先建立好整个功能的架构<br>具体如下图所示：</p>
+<p><img src="http://oj171eydn.bkt.clouddn.com/show2.png" alt="静态html"></p>
 <h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;  </span><br><span class="line">    html,body &#123;</span><br><span class="line">        padding:0;</span><br><span class="line">        margin: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#back&#123;   </span></span><br><span class="line">        width:1000px;</span><br><span class="line">        height: 3377px;</span><br><span class="line">        margin:0 auto;</span><br><span class="line">        background-color: <span class="comment">#e0e0e0;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#back img&#123;</span></span><br><span class="line">        width:1000px;</span><br><span class="line">        <span class="built_in">float</span>:left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#top&#123;  </span></span><br><span class="line">        width:50px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        margin-left: 1010px;</span><br><span class="line">        background: url(../img/back.png);</span><br><span class="line">        background-size:cover;</span><br><span class="line">        position:fixed;</span><br><span class="line">        bottom: 20px;</span><br><span class="line">        cursor:pointer;</span><br><span class="line">        display:none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#top img&#123;</span></span><br><span class="line">        width:50px;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>在这里我们主要需要注意对返回顶部图标的定位,用fixed,固定于屏幕上的某处.</p>
 <h3 id="main-js"><a href="#main-js" class="headerlink" title="main js"></a>main js</h3><p>首先返回顶部有三个阶段,页面加载完成后的阶段,点击返回顶部返回的阶段,最后是在手动滚动阶段.</p>

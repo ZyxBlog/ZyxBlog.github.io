@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://oj171eydn.bkt.clouddn.com/cat.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://oj171eydn.bkt.clouddn.com/cat.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://oj171eydn.bkt.clouddn.com/cat.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="http://oj171eydn.bkt.clouddn.com/cat.jpg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="制作Tooltip标签首先是鼠标移入,然后显示标签栏,移出后然后标签消失. 静态文件html1234567891011121314&amp;lt;div id=&quot;topic&quot;&amp;gt;    &amp;lt;h1&amp;gt;原生Javascript实现Tooltip效果&amp;lt;/h1&amp;gt;      &amp;lt;p&amp;gt;Tooltip效果是非常常见的特效,它可以在用户将指针放置在控件上时为用户显示提示信息,比如简称文字">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js制作Tooltip标签">
+<meta property="og:url" content="https://zyxblog.github.io/2016/12/01/js制作Tooltip标签/index.html">
+<meta property="og:site_name" content="白驹过隙，忽然而已">
+<meta property="og:description" content="制作Tooltip标签首先是鼠标移入,然后显示标签栏,移出后然后标签消失. 静态文件html1234567891011121314&amp;lt;div id=&quot;topic&quot;&amp;gt;    &amp;lt;h1&amp;gt;原生Javascript实现Tooltip效果&amp;lt;/h1&amp;gt;      &amp;lt;p&amp;gt;Tooltip效果是非常常见的特效,它可以在用户将指针放置在控件上时为用户显示提示信息,比如简称文字">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oj171eydn.bkt.clouddn.com/show7.png">
+<meta property="og:updated_time" content="2018-04-25T05:14:02.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js制作Tooltip标签">
+<meta name="twitter:description" content="制作Tooltip标签首先是鼠标移入,然后显示标签栏,移出后然后标签消失. 静态文件html1234567891011121314&amp;lt;div id=&quot;topic&quot;&amp;gt;    &amp;lt;h1&amp;gt;原生Javascript实现Tooltip效果&amp;lt;/h1&amp;gt;      &amp;lt;p&amp;gt;Tooltip效果是非常常见的特效,它可以在用户将指针放置在控件上时为用户显示提示信息,比如简称文字">
+<meta name="twitter:image" content="http://oj171eydn.bkt.clouddn.com/show7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zyxblog.github.io/2016/12/01/js制作Tooltip标签/"/>
+
+
+
+
+
+  <title>js制作Tooltip标签 | 白驹过隙，忽然而已</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">白驹过隙，忽然而已</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep moving</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zyxblog.github.io/2016/12/01/js制作Tooltip标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="周轶轩">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oj171eydn.bkt.clouddn.com/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白驹过隙，忽然而已">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js制作Tooltip标签</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-01T12:31:18+08:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>制作Tooltip标签首先是鼠标移入,然后显示标签栏,移出后然后标签消失.</p>
+<h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"topic"</span>&gt;</span><br><span class="line">    &lt;h1&gt;原生Javascript实现Tooltip效果&lt;/h1&gt;  </span><br><span class="line">    &lt;p&gt;Tooltip效果是非常常见的特效,它可以在用户将指针放置在控件上时为用户显示提示信息,比如简称文字显示一行文字全称时,例:</span><br><span class="line">        &lt;a class=<span class="string">"tooltip"</span> id=<span class="string">"tool1"</span>&gt;中国&lt;/a&gt;,&lt;a class=<span class="string">"tooltip"</span> id=<span class="string">"tool2"</span>&gt;NBA&lt;/a&gt;.又比如显示一段文字,例:唐诗三百首中的    </span><br><span class="line">        &lt;a class=<span class="string">"tooltip"</span> id=<span class="string">"tool3"</span>&gt;春晓&lt;/a&gt;.这就是Tooltip的提示.</span><br><span class="line">    &lt;/p&gt;  </span><br><span class="line">    &lt;p&gt;Tooltip效果还可以用来显示图片,例:</span><br><span class="line">        &lt;a class=<span class="string">"tooltip"</span> id=<span class="string">"tool4"</span>&gt;;西湖美景&lt;/a&gt;.  </span><br><span class="line">    &lt;/p&gt;  </span><br><span class="line">    &lt;p&gt;甚至可以显示一整个网站:例</span><br><span class="line">        &lt;a class=<span class="string">"tooltip"</span> id=<span class="string">"tool5"</span>&gt;百度&lt;/a&gt;  </span><br><span class="line">    &lt;/p&gt;  </span><br><span class="line">    &lt;p&gt;这就是Tooltip效果.</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><p>我们要给需要释义的词统一好样式,设置类名为”tooltip”<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;  </span><br><span class="line">html,body &#123;    </span><br><span class="line">    padding:0;    </span><br><span class="line">    margin:0;  </span><br><span class="line">&#125;  </span><br><span class="line">body &#123;    </span><br><span class="line">    background-color: rgb(157, 240, 152);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">#topic &#123;    </span></span><br><span class="line">    width:500px;    </span><br><span class="line">    height:350px;    </span><br><span class="line">    padding:10px 20px;    </span><br><span class="line">    margin:35px auto;    </span><br><span class="line">    background-color:rgb(235, 232, 233);    </span><br><span class="line">    border:10px solid rgb(249, 197, 160);    </span><br><span class="line">    border-radius: 15px;    </span><br><span class="line">    -moz-border-radius:15px;    </span><br><span class="line">    -webkit-border-radius:15px;  </span><br><span class="line">&#125;  </span><br><span class="line">h1 &#123;    </span><br><span class="line">    color:blue;  </span><br><span class="line">&#125;  </span><br><span class="line">.tooltip &#123;    </span><br><span class="line">    color: rgb(224, 30, 24);    </span><br><span class="line">    cursor:<span class="built_in">help</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">.tip &#123;    </span><br><span class="line">    background-color: <span class="comment">#fff;    </span></span><br><span class="line">    display: block;    </span><br><span class="line">    border:1px solid rgb(34, 242, 242);    </span><br><span class="line">    color:<span class="comment">#333;    </span></span><br><span class="line">    line-height: 1.6;    </span><br><span class="line">    padding: 20px;    </span><br><span class="line">    font-size: 12px;    </span><br><span class="line">    border-radius:5px;    </span><br><span class="line">    -moz-border-radius:5px;    </span><br><span class="line">    -webkit-border-radius:5px;    </span><br><span class="line">    overflow:auto;  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在里面我们需要注意如下几点:</p>
+<ul>
+<li>一是css3中对圆角的设置border-radius,官方上解决兼容性是这样的-moz-border-radius和-webkit-border-radius</li>
+<li>二是虽然现在还没有.tip,因为我们在后面会动态添加节点元素.</li>
+</ul>
+<h3 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h3><p>由于tooltip有多个标签,所以为了精简代码,我们主要思路是传递参数.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;    </span><br><span class="line">    var isIE = navigator.userAgent.indexOf(<span class="string">"MSIE"</span>)&gt;-1;    </span><br><span class="line">    <span class="keyword">function</span> tool(origin, id, html, width, height) &#123;      </span><br><span class="line">        <span class="keyword">if</span>(document.getElementById(id) == null) &#123;        </span><br><span class="line">            var node;        </span><br><span class="line">            ori = document.getElementById(origin);        </span><br><span class="line">            node = document.createElement(<span class="string">"div"</span>);        </span><br><span class="line">            node.id = id;        </span><br><span class="line">            node.className = <span class="string">"tip"</span>;        </span><br><span class="line">            node.innerHTML = html;        </span><br><span class="line">            node.style.width = width?width+<span class="string">"px"</span>:<span class="string">"auto"</span>;       //ie浏览器        </span><br><span class="line">            node.style.height = height?height+<span class="string">"px"</span>:<span class="string">"auto"</span>;        </span><br><span class="line">            <span class="keyword">if</span>(!width &amp;amp;&amp;amp; isIE) &#123;          </span><br><span class="line">                node.style.width = node.offsetWidth;        </span><br><span class="line">                node.style.position = <span class="string">"absolute"</span>;        </span><br><span class="line">                node.style.display = <span class="string">"block"</span>;        </span><br><span class="line">                node.style.left = ori.offsetLeft+<span class="string">"px"</span>;        </span><br><span class="line">                node.style.top = ori.offsetTop+20+<span class="string">"px"</span>;        </span><br><span class="line">                ori.appendChild(node);        </span><br><span class="line">                ori.onmouseleave = <span class="function"><span class="title">function</span></span>() &#123;          </span><br><span class="line">                    setTimeout(<span class="function"><span class="title">function</span></span>() &#123;            </span><br><span class="line">                        document.getElementById(id).style.display = <span class="string">"none"</span>;          </span><br><span class="line">                    &#125;, 1000);        </span><br><span class="line">                &#125;     </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;        </span><br><span class="line">                document.getElementById(id).style.display = <span class="string">"block"</span>;      </span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;    </span><br><span class="line">        /********中国********/    </span><br><span class="line">        document.getElementById(<span class="string">"tool1"</span>).onmouseenter = <span class="function"><span class="title">function</span></span>() &#123;      </span><br><span class="line">            tool(<span class="string">"tool1"</span>,<span class="string">"to1"</span>,<span class="string">"中华人民共和国"</span>,100,30);    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">```            </span><br><span class="line"></span><br><span class="line">该函数tool(),主要传递5个参数,第一个是触发源,第二个是创建节点的id,第三个是里面的html,这里可以是文字,可以是有格式的诗歌,可以是图片,也可以是网页.形式大致是这样的</span><br><span class="line">```bash</span><br><span class="line">&lt;div class=<span class="string">"tip"</span> id=<span class="string">"id"</span>&gt;xxx&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其中需要注意的如下:</p>
+<ul>
+<li>auto这个不适用与IE的兼容性,因此在开头用navigator.userAgent.indexOf(“MISE”)&gt;-1验证IE浏览器.</li>
+<li>同时为了让标签摆在合适的位置,我设置了position为absolute,display为block.</li>
+<li>如果不传递宽高参数,那设置为auto;</li>
+<li>offset后的Left或者Top,是相对于版面或者是父坐标的位置,在这里的很显然是相对于父元素的位置,然后赋值给出来标签的位置.</li>
+</ul>
+<p>效果图<br><img src="http://oj171eydn.bkt.clouddn.com/show7.png" alt="show"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oj171eydn.bkt.clouddn.com/wx.jpg" alt="周轶轩 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oj171eydn.bkt.clouddn.com/zhifubao.jpg" alt="周轶轩 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/25/js筛选奇数和偶数/" rel="next" title="js筛选奇数和偶数">
+                <i class="fa fa-chevron-left"></i> js筛选奇数和偶数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/04/localStorage和sessionStorage/" rel="prev" title="localStorage和sessionStorage">
+                localStorage和sessionStorage <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oj171eydn.bkt.clouddn.com/cat.jpg"
+                alt="周轶轩" />
+            
+              <p class="site-author-name" itemprop="name">周轶轩</p>
+              <p class="site-description motion-element" itemprop="description">非淡泊无以明志，非宁静无以致远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ZyxBlog" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:609629767@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态文件"><span class="nav-number">1.</span> <span class="nav-text">静态文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">1.1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css"><span class="nav-number">1.2.</span> <span class="nav-text">css</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态脚本"><span class="nav-number">2.</span> <span class="nav-text">动态脚本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周轶轩</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

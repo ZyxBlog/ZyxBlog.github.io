@@ -82,14 +82,14 @@
 <meta name="description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cookie&#x2F;XSS&#x2F;CSRF">
+<meta property="og:title" content="Cookie&#x2F;XSS&#x2F;CSRF&#x2F;跨域">
 <meta property="og:url" content="https://zyxblog.github.io/2019/10/11/Cookie/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-18T13:24:01.621Z">
+<meta property="og:updated_time" content="2019-10-18T13:39:59.467Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cookie&#x2F;XSS&#x2F;CSRF">
+<meta name="twitter:title" content="Cookie&#x2F;XSS&#x2F;CSRF&#x2F;跨域">
 <meta name="twitter:description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Cookie/XSS/CSRF | 白驹过隙，忽然而已</title>
+  <title>Cookie/XSS/CSRF/跨域 | 白驹过隙，忽然而已</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cookie/XSS/CSRF</h1>
+          <h1 class="post-title" itemprop="name headline">Cookie/XSS/CSRF/跨域</h1>
         
 
         <div class="post-meta">
@@ -373,6 +373,17 @@
 <li>验证HTTP Referer字段、在请求地址中添加token并验证、 在HTTP头中自定义属性并验证</li>
 <li>CSRF攻击是有条件的，当用户访问恶意链接时，认证的cookie仍然有效，所以当用户关闭页面时要及时清除认证cookie，对支持TAB模式（新标签打开网页）的浏览器尤为重要。</li>
 <li>尽量少用或不要用request()类变量，获取参数指定request.form()还是request. querystring ()，这样有利于阻止CSRF漏洞攻击，此方法只不能完全防御CSRF攻击，只是一定程度上增加了攻击的难度。</li>
+</ul>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="为什么要跨域"><a href="#为什么要跨域" class="headerlink" title="为什么要跨域"></a>为什么要跨域</h2><p>为了网络安全起见，浏览器设置了一个同源策略，规定只有域名，端口，协议全部相同，就叫做同源。当页面在执行一个脚本时，会检查访问的资源是否同源，如果不是，就会报错。可是在实际开发中，经常会有跨域加载资源的需求，避免不了跨域请求，所以就出现了跨域。</p>
+<p>同源策略的目的：为了保证用户信息的安全，防止恶意的网站窃取数据。</p>
+<h2 id="有什么跨域场景"><a href="#有什么跨域场景" class="headerlink" title="有什么跨域场景"></a>有什么跨域场景</h2><p>端口不同、域名不同、协议不同。</p>
+<h2 id="同源策略限制的具体表现"><a href="#同源策略限制的具体表现" class="headerlink" title="同源策略限制的具体表现"></a>同源策略限制的具体表现</h2><p>（1）coikie、LocalStorage和Index DB 无法读取<br>（2）Dom 无法获得<br>（3）AJAX请求不能发送</p>
+<h2 id="跨域方案"><a href="#跨域方案" class="headerlink" title="跨域方案"></a>跨域方案</h2><ul>
+<li>JSONP – 原理就是利用了script标签，在标签外套了一层壳，利用标签特性达到跨域加载资源的效果。<br>JSONP由两部分组成，回调函数和数据<br>优点：<br>（1）兼容性好，在多古老的浏览器都能运行。<br>（2）能直接访问响应文本，支持在浏览器与服务器之间双向通信。<br>缺点：<br>（1）只支持GET请求，不支持POST请求；<br>（2）不够安全。因为JSONP是从其他域中加载代码执行，如果其他域不安全，可能会在响应中带有恶意代码。<br>（3）不容易确认请求是否失败。</li>
+<li>CORS – 跨站资源共享，它是跨域的官方解决方案，升级版的JSONP。原理是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。请求和响应都不包含cookie信息。<br>CORS需要浏览器和后院同时支持，浏览器会自动进行CORS通信，实现CORS通信的关键是后端，只要后端实现了CORS，就实现了跨域，服务端设置Access-Control-Allow-Origin 就可以开启CORS，该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。</li>
+<li>webSockets – 不受同源策略影响。原理是因为它不使用HTTP协议，而使用一种自定义的协议，专门为快速传输小数据设计。</li>
+<li>Nginx – 代理跨域。反向代理跨域。</li>
+<li>Proxy</li>
 </ul>
 
       
@@ -593,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Cookie"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的属性"><span class="nav-number">1.3.</span> <span class="nav-text">Cookie的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Cookie的方式"><span class="nav-number">1.4.</span> <span class="nav-text">设置Cookie的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的优化"><span class="nav-number">1.5.</span> <span class="nav-text">Cookie的优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS"><span class="nav-number">2.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS攻击原理"><span class="nav-number">2.1.</span> <span class="nav-text">XSS攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免XSS"><span class="nav-number">2.2.</span> <span class="nav-text">如何避免XSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSRF"><span class="nav-number">3.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF攻击原理"><span class="nav-number">3.1.</span> <span class="nav-text">CSRF攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免CSRF"><span class="nav-number">3.2.</span> <span class="nav-text">如何避免CSRF</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Cookie"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的属性"><span class="nav-number">1.3.</span> <span class="nav-text">Cookie的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Cookie的方式"><span class="nav-number">1.4.</span> <span class="nav-text">设置Cookie的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的优化"><span class="nav-number">1.5.</span> <span class="nav-text">Cookie的优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS"><span class="nav-number">2.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS攻击原理"><span class="nav-number">2.1.</span> <span class="nav-text">XSS攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免XSS"><span class="nav-number">2.2.</span> <span class="nav-text">如何避免XSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSRF"><span class="nav-number">3.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF攻击原理"><span class="nav-number">3.1.</span> <span class="nav-text">CSRF攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免CSRF"><span class="nav-number">3.2.</span> <span class="nav-text">如何避免CSRF</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">4.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要跨域"><span class="nav-number">4.1.</span> <span class="nav-text">为什么要跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有什么跨域场景"><span class="nav-number">4.2.</span> <span class="nav-text">有什么跨域场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略限制的具体表现"><span class="nav-number">4.3.</span> <span class="nav-text">同源策略限制的具体表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域方案"><span class="nav-number">4.4.</span> <span class="nav-text">跨域方案</span></a></li></ol></li></ol></div>
             
 
           </div>

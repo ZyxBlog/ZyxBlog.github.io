@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Cookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie*web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需要前面的信息">
+<meta name="description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cookie">
+<meta property="og:title" content="Cookie&#x2F;XSS&#x2F;CSRF">
 <meta property="og:url" content="https://zyxblog.github.io/2019/10/11/Cookie/index.html">
 <meta property="og:site_name" content="白驹过隙，忽然而已">
-<meta property="og:description" content="Cookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie*web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需要前面的信息">
+<meta property="og:description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-11T13:44:50.687Z">
+<meta property="og:updated_time" content="2019-10-18T13:24:01.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cookie">
-<meta name="twitter:description" content="Cookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie*web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需要前面的信息">
+<meta name="twitter:title" content="Cookie&#x2F;XSS&#x2F;CSRF">
+<meta name="twitter:description" content="CookieCookie是什么Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话” 为什么要用Cookie web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Cookie | 白驹过隙，忽然而已</title>
+  <title>Cookie/XSS/CSRF | 白驹过隙，忽然而已</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cookie</h1>
+          <h1 class="post-title" itemprop="name headline">Cookie/XSS/CSRF</h1>
         
 
         <div class="post-meta">
@@ -342,9 +342,9 @@
       
 
       
-        <h2 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h2><p>Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。<br>一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话”</p>
-<h2 id="为什么要用Cookie"><a href="#为什么要用Cookie" class="headerlink" title="为什么要用Cookie"></a>为什么要用Cookie</h2><p>*web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需要前面的信息，则必须重传，这样导致每次传送的数据量增大。</p>
-<ul>
+        <h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h2><p>Cookie（会话跟踪技术），是小量信息数据，由网络服务器发送出来以存储在网络浏览器上，当下次再回到该网络服务器时，可从该浏览器读回此信息。<br>一个网站从打开到浏览（包括这个网页的其他子页面）到最后关闭浏览器整个过程叫一个“会话”</p>
+<h2 id="为什么要用Cookie"><a href="#为什么要用Cookie" class="headerlink" title="为什么要用Cookie"></a>为什么要用Cookie</h2><ul>
+<li>web程序是使用HTTP协议传输的，而HTTP协议是无状态的协议，对于业务处理没有记忆能力。缺少状态意味如果后续处理需要前面的信息，则必须重传，这样导致每次传送的数据量增大。</li>
 <li>在服务器不需要先前信息时它的应答比较快。</li>
 </ul>
 <h2 id="Cookie的属性"><a href="#Cookie的属性" class="headerlink" title="Cookie的属性"></a>Cookie的属性</h2><ul>
@@ -362,6 +362,18 @@
 <li>通过使用不同的domain减少cookie的使用。<br>cookie在访问对应域名下的资源时都会通过HTTP请求发送到服务器，但在访问一些资源，如js，css和图片时，大多数情况下cookie是多余的，可以使用不同的domain来存储这些静态资源，这样访问这些资源时就不会发送多余的cookie，从而提高响应速度。</li>
 </ul>
 <p>　　cookie隔离：如果静态文件都放在主域名下，那静态文件请求的时候都带有的cookie的数据提交给server的，非常浪费流量，所以不如隔离开。因为cookie有域的限制，因此不能跨域提交请求，故使用非主要域名的时候，请求头中就不会带有cookie数据，这样可以降低请求头的大小，降低请求时间，从而达到降低整体请求延时的目的。同时这种方式不会将cookie传入Web Server，也减少了Web Server对cookie的处理分析环节，提高了webserver的http请求的解析速度。</p>
+<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><h2 id="XSS攻击原理"><a href="#XSS攻击原理" class="headerlink" title="XSS攻击原理"></a>XSS攻击原理</h2><p>XSS（Cross Site Script 跨站脚本攻击），包括反射性XSS、持久性XSS、DOM based XSS，其原理是攻击者向有XSS漏洞的网站中输入恶意的 HTML 代码，当用户浏览该网站时，这段 HTML 代码会自动执行，从而达到攻击的目的。XSS 攻击类似于 SQL 注入攻击，SQL注入攻击中以SQL语句作为用户输入，从而达到查询/修改/删除数据的目的，而在xss攻击中，通过插入恶意脚本，实现对用户游览器的控制，获取用户的一些信息。 XSS是 Web 程序中常见的漏洞，XSS 属于被动式且用于客户端的攻击方式。<br>XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。而由于直接在用户的终端执行，恶意代码能够直接获取用户的信息，或者利用这些信息冒充用户向网站发起攻击者定义的请求。在部分情况下，由于输入的限制，注入的恶意脚本比较短。但可以通过引入外部的脚本，并由浏览器执行，来完成比较复杂的攻击策略。<br>例如： 在input框中输入<script>alert(‘XSS’)</script></p>
+<h2 id="如何避免XSS"><a href="#如何避免XSS" class="headerlink" title="如何避免XSS"></a>如何避免XSS</h2><ul>
+<li>XSS 攻击的预防主要是对输入(和URL参数)进行过滤，对输出进行编码,将容易导致XSS攻击的边角字符替换成全角字符</li>
+<li>对输出进行编码,在输出数据之前对潜在的威胁的字符进行编码、转义是防御XSS攻击。</li>
+</ul>
+<h1 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h1><h2 id="CSRF攻击原理"><a href="#CSRF攻击原理" class="headerlink" title="CSRF攻击原理"></a>CSRF攻击原理</h2><p>CSRF（Cross Site Request Forgery, 跨站域请求伪造）是一种网络的攻击方式，CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。登录安全受信任的网站A，并在本地生成Cookie，在访问A的情况访问危险的网站B，网站B接受用户请求后返回攻击性代码，网站A在用户不知情的情况下携带Cookie信息，当用户C访问的时候，B网站的恶意代码被执行。</p>
+<h2 id="如何避免CSRF"><a href="#如何避免CSRF" class="headerlink" title="如何避免CSRF"></a>如何避免CSRF</h2><p>CSRF漏洞防御主要可以从三个层面进行，即服务端的防御、用户端的防御和安全设备的防御。</p>
+<ul>
+<li>验证HTTP Referer字段、在请求地址中添加token并验证、 在HTTP头中自定义属性并验证</li>
+<li>CSRF攻击是有条件的，当用户访问恶意链接时，认证的cookie仍然有效，所以当用户关闭页面时要及时清除认证cookie，对支持TAB模式（新标签打开网页）的浏览器尤为重要。</li>
+<li>尽量少用或不要用request()类变量，获取参数指定request.form()还是request. querystring ()，这样有利于阻止CSRF漏洞攻击，此方法只不能完全防御CSRF攻击，只是一定程度上增加了攻击的难度。</li>
+</ul>
 
       
     </div>
@@ -581,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Cookie"><span class="nav-number">2.</span> <span class="nav-text">为什么要用Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的属性"><span class="nav-number">3.</span> <span class="nav-text">Cookie的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Cookie的方式"><span class="nav-number">4.</span> <span class="nav-text">设置Cookie的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的优化"><span class="nav-number">5.</span> <span class="nav-text">Cookie的优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Cookie"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的属性"><span class="nav-number">1.3.</span> <span class="nav-text">Cookie的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Cookie的方式"><span class="nav-number">1.4.</span> <span class="nav-text">设置Cookie的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的优化"><span class="nav-number">1.5.</span> <span class="nav-text">Cookie的优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS"><span class="nav-number">2.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS攻击原理"><span class="nav-number">2.1.</span> <span class="nav-text">XSS攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免XSS"><span class="nav-number">2.2.</span> <span class="nav-text">如何避免XSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSRF"><span class="nav-number">3.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF攻击原理"><span class="nav-number">3.1.</span> <span class="nav-text">CSRF攻击原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免CSRF"><span class="nav-number">3.2.</span> <span class="nav-text">如何避免CSRF</span></a></li></ol></li></ol></div>
             
 
           </div>

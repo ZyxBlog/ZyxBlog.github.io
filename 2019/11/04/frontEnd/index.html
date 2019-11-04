@@ -87,12 +87,10 @@
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="11.03数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;   // 当前指">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zyxblog.github.io/.io//proto.png">
-<meta property="og:updated_time" content="2019-11-04T02:53:59.012Z">
+<meta property="og:updated_time" content="2019-11-04T03:11:51.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frontEnd">
 <meta name="twitter:description" content="11.03数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;   // 当前指">
-<meta name="twitter:image" content="https://zyxblog.github.io/.io//proto.png">
 
 
 
@@ -331,7 +329,14 @@
 <h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h3><p>思路: 用object代替数组存储,降低时间复杂度和空间复杂度</p>
 <p>时间复杂度O(n)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> twoSum = <span class="keyword">function</span>(nums, target) &#123;</span><br><span class="line">    <span class="built_in">let</span> obj = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj[nums[i]] !== undefined) &#123;</span><br><span class="line">            <span class="built_in">return</span> [obj[nums[i]], i]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[target - nums[i]] = i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><h4 id="ES5的原型和原型链"><a href="#ES5的原型和原型链" class="headerlink" title="ES5的原型和原型链"></a>ES5的原型和原型链</h4><p>原型及原型链:<br><img src="/.io//proto.png" alt="proto"></p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><h4 id="ES5的原型和原型链"><a href="#ES5的原型和原型链" class="headerlink" title="ES5的原型和原型链"></a>ES5的原型和原型链</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var foo = <span class="function"><span class="title">function</span></span>() &#123;&#125;</span><br><span class="line">f1 = new foo()</span><br></pre></td></tr></table></figure>
+<p>原型及原型链:<br>Javascript中所有的对象都是Object的实例, 并继承Object.prototype的属性和方法, Object.prototype是所有对象的爸爸。</p>
+<ul>
+<li><strong>proto</strong> 和constructor属性是对象所独有的, prototype属性是函数所独有的, 因为函数是一种对象,所以函数也拥有 <strong>proto</strong> 和constructor属性</li>
+<li><strong>proto</strong> 属性的作用就是当访问一个对象的属性时,如果对象内部不存在这个属性时,那就会去它的 <strong>proto</strong> 属性指向的那个对象(父对象)里面找,直到 <strong>proto</strong> 属性的终点null,然后返回undefined, 通过<strong>proto</strong> 属性将对象连接起来的这条链路就是原型链.</li>
+<li>prototype 属性的作用是让该函数所实例化的对象们都可以找到共用的属性和方法,将f1.<strong>ptoto</strong> === foo.prototype</li>
+<li>constructor属性的含义就是指向该对象的构造函数,所有函数(视为对象)最终的构造函数都指向Function</li>
+</ul>
 <h4 id="new的实现原理"><a href="#new的实现原理" class="headerlink" title="new的实现原理"></a>new的实现原理</h4><p>基本现象：<br>例如: function A(name) { this.name = name }   a = new A(‘xxx’)</p>
 <ul>
 <li>a是一个普通的对象</li>

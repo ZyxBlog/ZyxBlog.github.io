@@ -87,15 +87,16 @@
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="11.03数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;   // 当前指">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zyxblog.github.io/.io//proto.png">
 <meta property="og:image" content="https://zyxblog.github.io/2019/11/04/images/proto.png">
 <meta property="og:image" content="https://zyxblog.github.io/.io//proto.png">
 <meta property="og:image" content="https://zyxblog.github.io/.io//proto.png">
 <meta property="og:image" content="https://zyxblog.github.io/.io//proto.png">
-<meta property="og:updated_time" content="2019-11-04T02:52:00.270Z">
+<meta property="og:updated_time" content="2019-11-04T02:52:51.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frontEnd">
 <meta name="twitter:description" content="11.03数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;   // 当前指">
-<meta name="twitter:image" content="https://zyxblog.github.io/2019/11/04/images/proto.png">
+<meta name="twitter:image" content="https://zyxblog.github.io/.io//proto.png">
 
 
 
@@ -334,7 +335,7 @@
 <h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h3><p>思路: 用object代替数组存储,降低时间复杂度和空间复杂度</p>
 <p>时间复杂度O(n)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> twoSum = <span class="keyword">function</span>(nums, target) &#123;</span><br><span class="line">    <span class="built_in">let</span> obj = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj[nums[i]] !== undefined) &#123;</span><br><span class="line">            <span class="built_in">return</span> [obj[nums[i]], i]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[target - nums[i]] = i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><h4 id="ES5的原型和原型链"><a href="#ES5的原型和原型链" class="headerlink" title="ES5的原型和原型链"></a>ES5的原型和原型链</h4><p>原型及原型链:<br><img src="../images/proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"></p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><h4 id="ES5的原型和原型链"><a href="#ES5的原型和原型链" class="headerlink" title="ES5的原型和原型链"></a>ES5的原型和原型链</h4><p>原型及原型链:<br><img src="/.io//proto.png" alt="proto"><br><img src="../images/proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"><br><img src="/.io//proto.png" alt="proto"></p>
 <h4 id="new的实现原理"><a href="#new的实现原理" class="headerlink" title="new的实现原理"></a>new的实现原理</h4><p>基本现象：<br>例如: function A(name) { this.name = name }   a = new A(‘xxx’)</p>
 <ul>
 <li>a是一个普通的对象</li>
@@ -412,6 +413,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/04/11-02/" rel="prev" title="11.02">
+                11.02 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -492,7 +497,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

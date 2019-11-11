@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="11.03-11.09数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-10T09:46:16.831Z">
+<meta property="og:updated_time" content="2019-11-11T13:07:16.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frontEnd">
 <meta name="twitter:description" content="11.03-11.09数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;">
@@ -675,6 +675,106 @@
 <p>总结: 箭头函数的 this 永远指向其上下文的  this ，任何方法都改变不了其指向，如 call() ,  bind() ,  apply() , 普通函数的this指向调用它的那个对象</p>
 <p>普通函数: 根据调用我的人（谁调用我，我的this就指向谁）</p>
 <p>箭头函数：根据所在的环境（我再哪个环境中，this就指向谁）</p>
+<h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h4 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h4><ol>
+<li>1xx: (临时响应)</li>
+</ol>
+<ul>
+<li>100: 状态码说明服务器收到了请求的初始部分，并且请客户端继续发送。在服务器发送了 100 Continue 状态码之后，如果收到客户端的请求，则必须进行响应。<br>应用场景：客户端有一个较大的文件需要上传并保存，但是客户端不知道服务器是否愿意接受这个文件，所以希望在消耗网络资源进行传输之前，先询问一下服务器的意愿。实际操作为客户端发送一条特殊的请求报文，报文的头部应包含Expect: 100-continue<br>此时，如果服务器愿意接受，就会返回 100 Continue 状态码，反之则返回 417 Expectation Failed 状态码。</li>
+<li>101: （切换协议） 请求者已要求服务器切换协议，服务器已确认并准备切换。</li>
+</ul>
+<ol start="2">
+<li>2xx: (成功)</li>
+</ol>
+<ul>
+<li>200:  服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。</li>
+<li>201: （已创建） 请求成功并且服务器创建了新的资源。</li>
+<li>202: （已接受） 服务器已接受请求，但尚未处理。</li>
+<li>203: （非授权信息） 服务器已成功处理了请求，但返回的信息可能来自另一来源。</li>
+<li>204: （无内容） 服务器成功处理了请求，但没有返回任何内容。</li>
+<li>205: （重置内容） 服务器成功处理了请求，但没有返回任何内容。</li>
+<li>206: （部分内容） 服务器成功处理了部分 GET 请求。</li>
+</ul>
+<ol start="3">
+<li>3xx: (重定向)</li>
+</ol>
+<ul>
+<li>300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (useragent)选择一项操作，或提供操作列表供请求者选择。</li>
+<li>301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或HEAD请求的响应）时，会自动将请求者转到新位置。</li>
+<li>302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>303 （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</li>
+<li>304 （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</li>
+<li>305 （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</li>
+<li>307 （临时重定向） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+</ul>
+<ol start="4">
+<li>4xx: （请求错误）</li>
+</ol>
+<ul>
+<li>400 （错误请求） 服务器不理解请求的语法。</li>
+<li>401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>402 该状态码是为了将来可能的需求而预留的。</li>
+<li>403 （禁止） 服务器拒绝请求。</li>
+<li>404 （未找到） 服务器找不到请求的网页。</li>
+<li>405 （方法禁用） 禁用请求中指定的方法。</li>
+<li>406 （不接受） 无法使用请求的内容特性响应请求的网页。</li>
+<li>407 （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</li>
+<li>408 （请求超时）服务器等候请求时发生超时。</li>
+<li>409 （冲突） 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</li>
+<li>410 （已删除） 如果请求的资源已永久删除，服务器就会返回此响应。</li>
+<li>411 （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。</li>
+<li>412 （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。</li>
+<li>413 （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</li>
+<li>414 （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。这比较少见，通常的情况包括：本应使用POST方法的表单提交变成了GET方法，导致查询字符串（Query String）过长(超过2k或者4k)。</li>
+<li>415 （不支持的媒体类型） 请求的格式不受请求页面的支持。</li>
+<li>416 （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。</li>
+<li>417 （未满足期望值） 服务器未满足”期望”请求标头字段的要求。</li>
+</ul>
+<ol start="5">
+<li>5xx: （服务器错误)</li>
+</ol>
+<ul>
+<li>500 （服务器内部错误） 服务器遇到错误，无法完成请求。</li>
+<li>501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</li>
+<li>502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。</li>
+<li>503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</li>
+<li>504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</li>
+<li>505 （HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本</li>
+</ul>
+<ol start="6">
+<li><p>600 源站没有返回响应头部，只返回实体内容</p>
+</li>
+<li><p>302/303/307<br>浏览器对303状态码的处理跟原来浏览器对HTTP1.0的302状态码的处理方法一样；浏览器对307状态码处理则跟原来HTTP1.0文档里对302的描述一样。<br>303和307的存在，归根结底是由于POST方法的非幂等属性引起的。<br>第二次post的时候环境有可能发生变化,POST操作会不符合用户预期。但是，很多浏览器（user agent我描述为浏览器以方便介绍）在这种情况下都会把POST请求变为GET请求。</p>
+</li>
+</ol>
+<p>302标准禁止post变化get，但实际使用时大家不遵守。<br>307会遵照浏览器标准，不会从post变为get。</p>
+<h4 id="TCP连接3次握手和四次挥手"><a href="#TCP连接3次握手和四次挥手" class="headerlink" title="TCP连接3次握手和四次挥手"></a>TCP连接3次握手和四次挥手</h4><p>第一次握手<br>客户端向服务端发送连接请求报文段。该报文段的头部中SYN=1，ACK=0，seq=x。请求发送后，客户端便进入SYN-SENT状态。</p>
+<p>PS1：SYN=1，ACK=0表示该报文段为连接请求报文。<br>PS2：x为本次TCP通信的字节流的初始序号。<br>TCP规定：SYN=1的报文段不能有数据部分，但要消耗掉一个序号。</p>
+<p>第二次握手<br>服务端收到连接请求报文段后，如果同意连接，则会发送一个应答：SYN=1，ACK=1，seq=y，ack=x+1。<br>该应答发送完成后便进入SYN-RCVD状态。</p>
+<p>PS1：SYN=1，ACK=1表示该报文段为连接同意的应答报文。<br>PS2：seq=y表示服务端作为发送者时，发送字节流的初始序号。<br>PS3：ack=x+1表示服务端希望下一个数据报发送序号从x+1开始的字节。</p>
+<p>第三次握手<br>当客户端收到连接同意的应答后，还要向服务端发送一个确认报文段，表示：服务端发来的连接同意应答已经成功收到。<br>该报文段的头部为：ACK=1，seq=x+1，ack=y+1。<br>客户端发完这个报文段后便进入ESTABLISHED状态，服务端收到这个应答后也进入ESTABLISHED状态，此时连接的建立完成！</p>
+<ol>
+<li>为什么连接建立需要三次握手? </li>
+</ol>
+<p>防止失效的连接请求报文段被服务端接收，从而产生错误。</p>
+<p>PS：失效的连接请求：若客户端向服务端发送的连接请求丢失，客户端等待应答超时后就会再次发送连接请求，此时，上一个连接请求就是『失效的』。</p>
+<p>若建立连接只需两次握手，客户端并没有太大的变化，仍然需要获得服务端的应答后才进入ESTABLISHED状态，而服务端在收到连接请求后就进入ESTABLISHED状态。此时如果网络拥塞，客户端发送的连接请求迟迟到不了服务端，客户端便超时重发请求，如果服务端正确接收并确认应答，双方便开始通信，通信结束后释放连接。此时，如果那个失效的连接请求抵达了服务端，由于只有两次握手，服务端收到请求就会进入ESTABLISHED状态，等待发送数据或主动发送数据。但此时的客户端早已进入CLOSED状态，服务端将会一直等待下去，这样浪费服务端连接资源。</p>
+<ol start="2">
+<li>四次挥手过程:</li>
+</ol>
+<ul>
+<li>首先进行关闭的一方（即发送第一个FIN）将执行主动关闭，而另一方（收到这个FIN）执行被动关闭。</li>
+<li>当服务器收到这个FIN，它发回一个ACK，确认序号为收到的序号加1。和SYN一样，一个FIN将占用一个序号。</li>
+<li>同时TCP服务器还向应用程序（即丢弃服务器）传送一个文件结束符。接着这个服务器程序就关闭它的连接，导致它的TCP端发送一个FIN。</li>
+<li>客户必须发回一个确认，并将确认序号设置为收到序号加1。</li>
+</ul>
+<ol start="3">
+<li><p>为什么4次挥手<br>TCP协议是一种面向连接的、可靠的、基于字节流的运输层通信协议。TCP是全双工模式，这就意味着，当主机1发出FIN报文段时，只是表示主机1已经没有数据要发送了，主机1告诉主机2，它的数据已经全部发送完毕了；但是，这个时候主机1还是可以接受来自主机2的数据；当主机2返回ACK报文段时，表示它已经知道主机1没有数据发送了，但是主机2还是可以发送数据到主机1的；当主机2也发送了FIN报文段时，这个时候就表示主机2也没有数据要发送了，就会告诉主机1，我也没有数据要发送了，之后彼此就会愉快的中断这次TCP连接。</p>
+</li>
+<li><p>为什么要设置时间为 2MSL<br>MSL 是Maximum Segment Lifetime,译为“报文最大生存时间”，任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。</p>
+</li>
+</ol>
+<p>等待 2MSL 时间主要目的是怕最后一个 ACK 对方没收到，那么对方在超时后将重发第三次握手的 FIN ，主动关闭端接到重发的 FIN 包后，系统收到该分组后，可以再发一个 ACK 应答包。还有就是等来该连接在网络上的所有报文都传输完毕，所以处于 TIME_WAIT 状态时候，两端的端口都是不可用的，迟到的报文都会被废弃。</p>
+<h4 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h4><p>TCP是传输控制协议，提供的是面向连接、可靠的字节流服务。通信双方彼此交换数据前，必须先通过三次握手协议建立连接，之后才能传输数据。TCP提供超时重传，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。<br>UDP是用户数据报协议，是一个简单的面向无连接的协议。UDP不提供可靠的服务。在数据数据前不用建立连接故而传输速度很快。UDP主要用户流媒体传输，IP电话等对数据可靠性要求不是很高的场合。</p>
 
       
     </div>
@@ -888,7 +988,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#11-03-11-09"><span class="nav-number">1.</span> <span class="nav-text">11.03-11.09</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">1.1.</span> <span class="nav-text">数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表反转"><span class="nav-number">1.1.1.</span> <span class="nav-text">链表反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环形链表"><span class="nav-number">1.1.2.</span> <span class="nav-text">环形链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两数之和"><span class="nav-number">1.1.3.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的层次遍历"><span class="nav-number">1.1.4.</span> <span class="nav-text">二叉树的层次遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-number">1.1.5.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">插入排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS"><span class="nav-number">1.2.1.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES5的原型和原型链"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ES5的原型和原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承的方式"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">继承的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6的继承"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">ES6的继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new的实现原理"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">new的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行上下文和调用堆栈"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">执行上下文和调用堆栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量提升-hositing-与作用域-scoping"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">变量提升(hositing)与作用域(scoping)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">==和===</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.2.1.8.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#call和apply"><span class="nav-number">1.2.1.9.</span> <span class="nav-text">call和apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动实现bind函数"><span class="nav-number">1.2.1.10.</span> <span class="nav-text">手动实现bind函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柯里化函数-Currying"><span class="nav-number">1.2.1.11.</span> <span class="nav-text">柯里化函数(Currying)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce函数实现"><span class="nav-number">1.2.1.12.</span> <span class="nav-text">reduce函数实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-0-2-0-3"><span class="nav-number">1.2.1.13.</span> <span class="nav-text">0.1 + 0.2 !== 0.3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-2-map-parseInt"><span class="nav-number">1.2.1.14.</span> <span class="nav-text">[0, 1, 2].map(parseInt)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#箭头函数和普通函数"><span class="nav-number">1.2.1.15.</span> <span class="nav-text">箭头函数和普通函数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-10"><span class="nav-number">2.</span> <span class="nav-text">11.10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法-1"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-1"><span class="nav-number">2.2.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">2.2.1.</span> <span class="nav-text">js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js的事件循环（event-loop）"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">js的事件循环（event-loop）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let-var-const"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">let/var/const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#箭头函数和普通函数-1"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">箭头函数和普通函数</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#11-03-11-09"><span class="nav-number">1.</span> <span class="nav-text">11.03-11.09</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">1.1.</span> <span class="nav-text">数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表反转"><span class="nav-number">1.1.1.</span> <span class="nav-text">链表反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环形链表"><span class="nav-number">1.1.2.</span> <span class="nav-text">环形链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两数之和"><span class="nav-number">1.1.3.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的层次遍历"><span class="nav-number">1.1.4.</span> <span class="nav-text">二叉树的层次遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-number">1.1.5.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">插入排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS"><span class="nav-number">1.2.1.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES5的原型和原型链"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ES5的原型和原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承的方式"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">继承的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6的继承"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">ES6的继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new的实现原理"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">new的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行上下文和调用堆栈"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">执行上下文和调用堆栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量提升-hositing-与作用域-scoping"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">变量提升(hositing)与作用域(scoping)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">==和===</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.2.1.8.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#call和apply"><span class="nav-number">1.2.1.9.</span> <span class="nav-text">call和apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动实现bind函数"><span class="nav-number">1.2.1.10.</span> <span class="nav-text">手动实现bind函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柯里化函数-Currying"><span class="nav-number">1.2.1.11.</span> <span class="nav-text">柯里化函数(Currying)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce函数实现"><span class="nav-number">1.2.1.12.</span> <span class="nav-text">reduce函数实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-0-2-0-3"><span class="nav-number">1.2.1.13.</span> <span class="nav-text">0.1 + 0.2 !== 0.3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-2-map-parseInt"><span class="nav-number">1.2.1.14.</span> <span class="nav-text">[0, 1, 2].map(parseInt)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#箭头函数和普通函数"><span class="nav-number">1.2.1.15.</span> <span class="nav-text">箭头函数和普通函数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-10"><span class="nav-number">2.</span> <span class="nav-text">11.10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法-1"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-1"><span class="nav-number">2.2.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">2.2.1.</span> <span class="nav-text">js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js的事件循环（event-loop）"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">js的事件循环（event-loop）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let-var-const"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">let/var/const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#箭头函数和普通函数-1"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">箭头函数和普通函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络"><span class="nav-number">2.2.2.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http状态码"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">http状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP连接3次握手和四次挥手"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">TCP连接3次握手和四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">TCP和UDP的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

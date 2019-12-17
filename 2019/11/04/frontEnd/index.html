@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="白驹过隙，忽然而已">
 <meta property="og:description" content="11.03-11.09数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-17T02:58:58.726Z">
+<meta property="og:updated_time" content="2019-12-17T07:22:55.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frontEnd">
 <meta name="twitter:description" content="11.03-11.09数据结构与算法链表反转思路: 迭代法, 首先将后一个指针节点存在一个临时节点中,然后将当前节点的next节点指向前指针节点,让前指针节点指向当前节点,更新当前节点. 时间复杂度O(n) 空间复杂度O(1) 123456789101112131415let reverseList = function(head) &amp;#123;        let cur = head;">
@@ -622,6 +622,7 @@
 <li>let块级作用域(优势: 防止内层变量可能会覆盖外层变量,变量泄露)</li>
 <li>const命令跟let命令一样不存在变量提升、具有块级作用域、存在暂时性死区</li>
 <li>const命令的本质是保证的并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。</li>
+<li><strong>var如果注册在全局就是顶层对象，是挂载在window上的，但是const和let是不会挂载在window上的</strong></li>
 </ul>
 <h4 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h4><p>浅拷贝和深拷贝都只针对于引用数据类型，浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存；但深拷贝会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象；</p>
 <p>区别：浅拷贝只复制对象的第一层属性、深拷贝可以对对象的属性进行递归复制；</p>
@@ -1188,7 +1189,8 @@
 <h4 id="npm避免版本的更新带来bug的问题：package-lock-json"><a href="#npm避免版本的更新带来bug的问题：package-lock-json" class="headerlink" title="npm避免版本的更新带来bug的问题：package-lock.json"></a>npm避免版本的更新带来bug的问题：package-lock.json</h4><p>package-lock.json的出现时避免同一个package.json产生不同的运行结果.<br>npm会根据package-lock.json里的内容来处理和安装依赖而不是根据package.json. 因为pacakge-lock.json给每个依赖标明了版本, 获取地址和哈希值, 使得每次安装都会出现相同的结果</p>
 <p>官方回答:<br>当我们对node_modules或者package.json进行了更改后, package-lock.json文件会自动生成. 里面会描述上一次更改后的确切的依赖管理树. 里面包含了唯一的版本号和相关的包信息. 之后的npm install会根据package-lock.json文件进行安装, 保证不同环境, 不同时间下的依赖是一样的.<br>还有一个好处是, 由于package-lock.json文件中记录了下载源地址, 可以加快我们的npm install速度</p>
 <p>package-lock.json是一个包含你所有依赖的巨大列表, 它包含明确的版本号(没有通配符), 依赖的获取地址, 一个用于验证完整性和正确性的哈希值, 以及这个依赖本身所需要的依赖.</p>
-<h4 id="npm-install的安装原理"><a href="#npm-install的安装原理" class="headerlink" title="npm install的安装原理"></a>npm install的安装原理</h4><ul>
+<h4 id="npm-install的安装原理"><a href="#npm-install的安装原理" class="headerlink" title="npm install的安装原理"></a>npm install的安装原理</h4><p>查询node_modules目录之中是否已经存在指定模块<br>若存在，不再重新安装<br>若不存在<br>npm 向 registry 查询模块压缩包的网址<br>下载压缩包，存放在根目录下的.npm目录里<br>解压压缩包到当前项目的node_modules目录</p>
+<ul>
 <li>执行工程自身 preinstall<br>当前 npm 工程如果定义了 preinstall 钩子此时会被执行。</li>
 <li>确定首层依赖模块<br>首先需要做的是确定工程中的首层依赖，也就是 dependencies 和 devDependencies 属性中直接指定的模块（假设此时没有添加 npm install 参数）。<br>工程本身是整棵依赖树的根节点，每个首层依赖模块都是根节点下面的一棵子树，npm 会开启多进程从每个首层依赖模块开始逐步寻找更深层级的节点。</li>
 <li>获取模块<br>获取模块是一个递归的过程，分为以下几步：<br>获取模块信息。在下载一个模块之前，首先要确定其版本，这是因为 package.json 中往往是 semantic version（semver，语义化版本）。此时如果版本描述文件（npm-shrinkwrap.json 或 package-lock.json）中有该模块信息直接拿即可，如果没有则从仓库获取。如 packaeg.json 中某个包的版本是 ^1.1.0，npm 就会去仓库中获取符合 1.x.x 形式的最新版本。</li>
@@ -1200,6 +1202,8 @@
 </li>
 <li>执行工程自身生命周期<br>当前 npm 工程如果定义了钩子此时会被执行（按照 install、postinstall、prepublish、prepare 的顺序）。<br>最后一步是生成或更新版本描述文件，npm install 过程完成。</li>
 </ul>
+<h4 id="webpack-热更新原理，是如何做到在不刷新浏览器的前提下更新页面的"><a href="#webpack-热更新原理，是如何做到在不刷新浏览器的前提下更新页面的" class="headerlink" title="webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的"></a>webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的</h4><p>1.当修改了一个或多个文件；<br>2.文件系统接收更改并通知webpack；<br>3.webpack重新编译构建一个或多个模块，并通知HMR(Hot Module Replacement)服务器进行更新；<br>4.HMR Server 使用webSocket通知HMR runtime 需要更新，HMR运行时通过HTTP请求更新jsonp；<br>5.HMR运行时替换更新中的模块，如果确定这些模块无法更新，则触发整个页面刷新。</p>
+<p>hot-module-replacement-plugin 的作用是提供 HMR 的 runtime，并且将 runtime 注入到 bundle.js 代码里面去。一旦磁盘里面的文件修改，那么 HMR server 会将有修改的 js module 信息发送给 HMR runtime，然后 HMR runtime 去局部更新页面的代码。因此这种方式可以不用刷新浏览器。</p>
 <h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><p>函数式编程关心数据的映射，命令式编程关心解决问题的步骤</p>
 <p>函数式编程关心类型（代数结构）之间的关系，命令式编程关心解决问题的步骤</p>
 <h4 id="函数式编程-1"><a href="#函数式编程-1" class="headerlink" title="函数式编程"></a>函数式编程</h4><ul>
@@ -1525,7 +1529,8 @@
 &lt;h4 id=&quot;npm避免版本的更新带来bug的问题：package-lock-json&quot;&gt;&lt;a href=&quot;#npm避免版本的更新带来bug的问题：package-lock-json&quot; class=&quot;headerlink&quot; title=&quot;npm避免版本的更新带来bug的问题：package-lock.json&quot;&gt;&lt;/a&gt;npm避免版本的更新带来bug的问题：package-lock.json&lt;/h4&gt;&lt;p&gt;package-lock.json的出现时避免同一个package.json产生不同的运行结果.&lt;br&gt;npm会根据package-lock.json里的内容来处理和安装依赖而不是根据package.json. 因为pacakge-lock.json给每个依赖标明了版本, 获取地址和哈希值, 使得每次安装都会出现相同的结果&lt;/p&gt;
 &lt;p&gt;官方回答:&lt;br&gt;当我们对node_modules或者package.json进行了更改后, package-lock.json文件会自动生成. 里面会描述上一次更改后的确切的依赖管理树. 里面包含了唯一的版本号和相关的包信息. 之后的npm install会根据package-lock.json文件进行安装, 保证不同环境, 不同时间下的依赖是一样的.&lt;br&gt;还有一个好处是, 由于package-lock.json文件中记录了下载源地址, 可以加快我们的npm install速度&lt;/p&gt;
 &lt;p&gt;package-lock.json是一个包含你所有依赖的巨大列表, 它包含明确的版本号(没有通配符), 依赖的获取地址, 一个用于验证完整性和正确性的哈希值, 以及这个依赖本身所需要的依赖.&lt;/p&gt;
-&lt;h4 id=&quot;npm-install的安装原理&quot;&gt;&lt;a href=&quot;#npm-install的安装原理&quot; class=&quot;headerlink&quot; title=&quot;npm install的安装原理&quot;&gt;&lt;/a&gt;npm install的安装原理&lt;/h4&gt;&lt;ul&gt;
+&lt;h4 id=&quot;npm-install的安装原理&quot;&gt;&lt;a href=&quot;#npm-install的安装原理&quot; class=&quot;headerlink&quot; title=&quot;npm install的安装原理&quot;&gt;&lt;/a&gt;npm install的安装原理&lt;/h4&gt;&lt;p&gt;查询node_modules目录之中是否已经存在指定模块&lt;br&gt;若存在，不再重新安装&lt;br&gt;若不存在&lt;br&gt;npm 向 registry 查询模块压缩包的网址&lt;br&gt;下载压缩包，存放在根目录下的.npm目录里&lt;br&gt;解压压缩包到当前项目的node_modules目录&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;执行工程自身 preinstall&lt;br&gt;当前 npm 工程如果定义了 preinstall 钩子此时会被执行。&lt;/li&gt;
 &lt;li&gt;确定首层依赖模块&lt;br&gt;首先需要做的是确定工程中的首层依赖，也就是 dependencies 和 devDependencies 属性中直接指定的模块（假设此时没有添加 npm install 参数）。&lt;br&gt;工程本身是整棵依赖树的根节点，每个首层依赖模块都是根节点下面的一棵子树，npm 会开启多进程从每个首层依赖模块开始逐步寻找更深层级的节点。&lt;/li&gt;
 &lt;li&gt;获取模块&lt;br&gt;获取模块是一个递归的过程，分为以下几步：&lt;br&gt;获取模块信息。在下载一个模块之前，首先要确定其版本，这是因为 package.json 中往往是 semantic version（semver，语义化版本）。此时如果版本描述文件（npm-shrinkwrap.json 或 package-lock.json）中有该模块信息直接拿即可，如果没有则从仓库获取。如 packaeg.json 中某个包的版本是 ^1.1.0，npm 就会去仓库中获取符合 1.x.x 形式的最新版本。&lt;/li&gt;
@@ -1537,6 +1542,8 @@
 &lt;/li&gt;
 &lt;li&gt;执行工程自身生命周期&lt;br&gt;当前 npm 工程如果定义了钩子此时会被执行（按照 install、postinstall、prepublish、prepare 的顺序）。&lt;br&gt;最后一步是生成或更新版本描述文件，npm install 过程完成。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&quot;webpack-热更新原理，是如何做到在不刷新浏览器的前提下更新页面的&quot;&gt;&lt;a href=&quot;#webpack-热更新原理，是如何做到在不刷新浏览器的前提下更新页面的&quot; class=&quot;headerlink&quot; title=&quot;webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的&quot;&gt;&lt;/a&gt;webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的&lt;/h4&gt;&lt;p&gt;1.当修改了一个或多个文件；&lt;br&gt;2.文件系统接收更改并通知webpack；&lt;br&gt;3.webpack重新编译构建一个或多个模块，并通知HMR(Hot Module Replacement)服务器进行更新；&lt;br&gt;4.HMR Server 使用webSocket通知HMR runtime 需要更新，HMR运行时通过HTTP请求更新jsonp；&lt;br&gt;5.HMR运行时替换更新中的模块，如果确定这些模块无法更新，则触发整个页面刷新。&lt;/p&gt;
+&lt;p&gt;hot-module-replacement-plugin 的作用是提供 HMR 的 runtime，并且将 runtime 注入到 bundle.js 代码里面去。一旦磁盘里面的文件修改，那么 HMR server 会将有修改的 js module 信息发送给 HMR runtime，然后 HMR runtime 去局部更新页面的代码。因此这种方式可以不用刷新浏览器。&lt;/p&gt;
 &lt;h3 id=&quot;函数式编程&quot;&gt;&lt;a href=&quot;#函数式编程&quot; class=&quot;headerlink&quot; title=&quot;函数式编程&quot;&gt;&lt;/a&gt;函数式编程&lt;/h3&gt;&lt;p&gt;函数式编程关心数据的映射，命令式编程关心解决问题的步骤&lt;/p&gt;
 &lt;p&gt;函数式编程关心类型（代数结构）之间的关系，命令式编程关心解决问题的步骤&lt;/p&gt;
 &lt;h4 id=&quot;函数式编程-1&quot;&gt;&lt;a href=&quot;#函数式编程-1&quot; class=&quot;headerlink&quot; title=&quot;函数式编程&quot;&gt;&lt;/a&gt;函数式编程&lt;/h4&gt;&lt;ul&gt;
